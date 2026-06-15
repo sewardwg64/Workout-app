@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -201,7 +200,7 @@ body{background:#0a0a0a;color:#f0f0f0;font-family:'DM Sans',sans-serif;min-heigh
 .week-modal-title{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.04em}
 .week-modal-close{background:none;border:none;color:#666;font-size:20px;cursor:pointer}
 .week-modal-body{overflow-y:auto;padding:16px 20px 32px}
-.week-track-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:20px}
+.week-track-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px}
 .week-cell{background:#111;border:1px solid #222;border-radius:10px;padding:10px 4px;text-align:center;cursor:pointer;position:relative;overflow:hidden}
 .week-cell.wk-active{border-color:#e8ff47;background:rgba(232,255,71,0.05)}
 .week-cell.wk-done{opacity:0.6}
@@ -264,7 +263,6 @@ body{background:#0a0a0a;color:#f0f0f0;font-family:'DM Sans',sans-serif;min-heigh
 <body>
 
 <!-- ══════════════════════════════════════ HOME ══ -->
-
 <div id="screen-home" class="screen active">
   <div class="top-bar"><div class="logo">BUILD. BURN. REPEAT.</div></div>
   <div class="container">
@@ -274,70 +272,66 @@ body{background:#0a0a0a;color:#f0f0f0;font-family:'DM Sans',sans-serif;min-heigh
       <div style="font-size:13px;color:#555;margin-top:6px">Each lift paired with a cardio burst. No boredom. All gains.</div>
     </div>
 
-```
-<!-- HIIT quick-start panel -->
-<div class="hiit-panel">
-  <div class="hiit-panel-header" onclick="toggleHiitPanel()">
-    <div>
-      <div class="hiit-panel-title">⚡ AD HOC HIIT</div>
-      <div style="font-size:11px;color:#555;margin-top:2px">Build a custom HIIT session</div>
-    </div>
-    <div id="hiit-toggle-icon" style="font-size:18px;color:#444">▼</div>
-  </div>
-  <div class="hiit-panel-body" id="hiit-panel-body" style="display:none">
-    <div class="hiit-input-group">
-      <label class="hiit-input-label">Warm-up duration (seconds)</label>
-      <input class="hiit-input" id="hiit-warmup" type="number" inputmode="numeric" value="120" oninput="updateHiitEstimate()">
-    </div>
-    <div class="hiit-input-group">
-      <label class="hiit-input-label">Exercise duration (seconds)</label>
-      <input class="hiit-input" id="hiit-work" type="number" inputmode="numeric" value="40" oninput="updateHiitEstimate()">
-    </div>
-    <div class="hiit-input-group">
-      <label class="hiit-input-label">Rest duration (seconds)</label>
-      <input class="hiit-input" id="hiit-rest" type="number" inputmode="numeric" value="20" oninput="updateHiitEstimate()">
-    </div>
-    <div class="hiit-input-group">
-      <label class="hiit-input-label">Number of rounds</label>
-      <input class="hiit-input" id="hiit-rounds" type="number" inputmode="numeric" value="10" oninput="updateHiitEstimate()">
-    </div>
-    <div class="hiit-estimated" id="hiit-estimated"></div>
-    <button class="btn btn-solid" onclick="startHiit()" style="background:#e8ff47;border-color:#e8ff47;color:#0a0a0a;margin-top:14px">START HIIT SESSION →</button>
-  </div>
-</div>
-
-<!-- Week tracker banner -->
-<div class="week-banner" onclick="openWeekModal()">
-  <div class="week-banner-bar"></div>
-  <div class="week-banner-inner">
-    <div class="week-banner-left">
-      <div class="week-banner-tag">// Your journey</div>
-      <div class="week-banner-title" id="home-week-title">WEEK 1</div>
-      <div class="week-banner-focus" id="home-week-focus">Foundation</div>
-    </div>
-    <div class="week-banner-right">
-      <div class="week-progress-ring">
-        <svg width="56" height="56"><circle fill="none" cx="28" cy="28" r="23" stroke="#1e1e1e" stroke-width="4"/><circle fill="none" id="home-week-ring" cx="28" cy="28" r="23" stroke="#e8ff47" stroke-width="4" stroke-dasharray="144.5" stroke-dashoffset="124" stroke-linecap="round"/></svg>
-        <div class="week-ring-num" id="home-week-num">1</div>
+    <!-- HIIT quick-start panel -->
+    <div class="hiit-panel">
+      <div class="hiit-panel-header" onclick="toggleHiitPanel()">
+        <div>
+          <div class="hiit-panel-title">⚡ AD HOC HIIT</div>
+          <div style="font-size:11px;color:#555;margin-top:2px">Build a custom HIIT session</div>
+        </div>
+        <div id="hiit-toggle-icon" style="font-size:18px;color:#444">▼</div>
       </div>
-      <div class="week-dots" id="home-week-dots"></div>
+      <div class="hiit-panel-body" id="hiit-panel-body" style="display:none">
+        <div class="hiit-input-group">
+          <label class="hiit-input-label">Warm-up duration (seconds)</label>
+          <input class="hiit-input" id="hiit-warmup" type="number" inputmode="numeric" value="120" oninput="updateHiitEstimate()">
+        </div>
+        <div class="hiit-input-group">
+          <label class="hiit-input-label">Exercise duration (seconds)</label>
+          <input class="hiit-input" id="hiit-work" type="number" inputmode="numeric" value="40" oninput="updateHiitEstimate()">
+        </div>
+        <div class="hiit-input-group">
+          <label class="hiit-input-label">Rest duration (seconds)</label>
+          <input class="hiit-input" id="hiit-rest" type="number" inputmode="numeric" value="20" oninput="updateHiitEstimate()">
+        </div>
+        <div class="hiit-input-group">
+          <label class="hiit-input-label">Number of rounds</label>
+          <input class="hiit-input" id="hiit-rounds" type="number" inputmode="numeric" value="10" oninput="updateHiitEstimate()">
+        </div>
+        <div class="hiit-estimated" id="hiit-estimated"></div>
+        <button class="btn btn-solid" onclick="startHiit()" style="background:#e8ff47;border-color:#e8ff47;color:#0a0a0a;margin-top:14px">START HIIT SESSION →</button>
+      </div>
     </div>
-  </div>
-  <div style="font-size:11px;color:#444;margin-top:10px;font-family:monospace;letter-spacing:0.1em">TAP TO SEE FULL 7-WEEK PLAN →</div>
-</div>
 
-<div id="day-cards"></div>
-<div class="how-box">
-  <div class="how-title">HOW IT WORKS</div>
-  <div class="how-text">Each superset pairs a <span style="color:#ff6b35">strength lift</span> with a <span style="color:#e8ff47">cardio burst</span>. Do the lift → cardio → rest → repeat. Weights are saved and progression nudges appear at the start of your next session. Sessions are tracked automatically.</div>
-</div>
-```
+    <!-- Week tracker banner -->
+    <div class="week-banner" onclick="openWeekModal()">
+      <div class="week-banner-bar"></div>
+      <div class="week-banner-inner">
+        <div class="week-banner-left">
+          <div class="week-banner-tag">// Your journey</div>
+          <div class="week-banner-title" id="home-week-title">CYCLE 1 · W1</div>
+          <div class="week-banner-focus" id="home-week-focus">Foundation</div>
+        </div>
+        <div class="week-banner-right">
+          <div class="week-progress-ring">
+            <svg width="56" height="56"><circle fill="none" cx="28" cy="28" r="23" stroke="#1e1e1e" stroke-width="4"/><circle fill="none" id="home-week-ring" cx="28" cy="28" r="23" stroke="#e8ff47" stroke-width="4" stroke-dasharray="144.5" stroke-dashoffset="124" stroke-linecap="round"/></svg>
+            <div class="week-ring-num" id="home-week-num">1</div>
+          </div>
+          <div class="week-dots" id="home-week-dots"></div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:#444;margin-top:10px;font-family:monospace;letter-spacing:0.1em">TAP TO SEE FULL 7-WEEK PLAN →</div>
+    </div>
 
+    <div id="day-cards"></div>
+    <div class="how-box">
+      <div class="how-title">HOW IT WORKS</div>
+      <div class="how-text">3 sessions a week: <span style="color:#ff6b35">Upper Body</span>, <span style="color:#c084fc">Lower + Core</span>, <span style="color:#00d4ff">Athletic</span>. Each exercise paired with a cardio burst. Built for muscle, sport performance and injury prevention. Weights logged, progression nudged, 4-week cycles auto-track.</div>
+    </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════ HIIT SCREEN ══ -->
-
 <div id="screen-hiit" class="screen">
   <div class="top-bar">
     <div class="logo" style="color:#e8ff47">⚡ HIIT</div>
@@ -358,11 +352,10 @@ body{background:#0a0a0a;color:#f0f0f0;font-family:'DM Sans',sans-serif;min-heigh
 </div>
 
 <!-- ══════════════════════════════════════ WEEK MODAL ══ -->
-
 <div class="week-modal-overlay" id="week-modal" onclick="closeWeekModalIfOutside(event)">
   <div class="week-modal">
     <div class="week-modal-header">
-      <div><div class="week-modal-title">7-WEEK PLAN</div><div style="font-size:12px;color:#555;margin-top:2px" id="week-modal-sub">Sessions tracked automatically</div></div>
+      <div><div class="week-modal-title">ROLLING PLAN</div><div style="font-size:12px;color:#555;margin-top:2px" id="week-modal-sub">4-week cycle · auto-tracks your sessions</div></div>
       <button class="week-modal-close" onclick="closeWeekModal()">✕</button>
     </div>
     <div class="week-modal-body">
@@ -376,7 +369,6 @@ body{background:#0a0a0a;color:#f0f0f0;font-family:'DM Sans',sans-serif;min-heigh
 </div>
 
 <!-- ══════════════════════════════════════ PREVIEW ══ -->
-
 <div id="screen-preview" class="screen">
   <div class="top-bar">
     <div><div class="pill" id="preview-pill"></div><div style="font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:0.04em" id="preview-day-title"></div><div style="font-size:12px;color:#666" id="preview-focus"></div></div>
@@ -390,7 +382,6 @@ body{background:#0a0a0a;color:#f0f0f0;font-family:'DM Sans',sans-serif;min-heigh
 </div>
 
 <!-- ══════════════════════════════════════ WARMUP ══ -->
-
 <div id="screen-warmup" class="screen">
   <div class="top-bar"><div class="logo" id="warmup-logo">WARM-UP</div><button class="exit-btn" onclick="goHome()">✕ Exit</button></div>
   <div class="container">
@@ -409,7 +400,6 @@ body{background:#0a0a0a;color:#f0f0f0;font-family:'DM Sans',sans-serif;min-heigh
 </div>
 
 <!-- ══════════════════════════════════════ WORKOUT ══ -->
-
 <div id="screen-workout" class="screen">
   <div class="top-bar"><div id="workout-logo" style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.06em"></div><button class="exit-btn" onclick="goHome()">✕ Exit</button></div>
   <div class="container">
@@ -449,7 +439,6 @@ body{background:#0a0a0a;color:#f0f0f0;font-family:'DM Sans',sans-serif;min-heigh
 </div>
 
 <!-- ══════════════════════════════════════ REST ══ -->
-
 <div id="screen-rest" class="screen">
   <div class="top-bar"><div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.06em;color:#666">REST</div><button class="exit-btn" onclick="goHome()">✕ Exit</button></div>
   <div class="container">
@@ -469,7 +458,6 @@ body{background:#0a0a0a;color:#f0f0f0;font-family:'DM Sans',sans-serif;min-heigh
 </div>
 
 <!-- ══════════════════════════════════════ COMPLETE ══ -->
-
 <div id="screen-complete" class="screen">
   <div class="container">
     <div class="complete-wrap">
@@ -489,7 +477,6 @@ body{background:#0a0a0a;color:#f0f0f0;font-family:'DM Sans',sans-serif;min-heigh
 </div>
 
 <!-- ══════════════════════════════════════ SWAP MODAL ══ -->
-
 <div class="modal-overlay" id="swap-modal" onclick="closeSwapIfOutside(event)">
   <div class="modal">
     <div class="modal-header"><div><div class="modal-title" id="modal-title">SWAP EXERCISE</div><div class="modal-sub" id="modal-sub"></div></div><button class="modal-close" onclick="closeSwapModal()">✕</button></div>
@@ -600,45 +587,63 @@ function buildMuscleDiagram(muscles, accentColor){
 // ════════════════════════════════════════════════ EQUIPMENT ════
 
 const EQUIPMENT = {
+  // Upper Body
+  'Dumbbell Bench Press':['2× Dumbbells','Flat bench'],
+  'Dumbbell Row (Single-Arm)':['2× Dumbbells (or 1× dumbbell)','Flat bench'],
+  'Overhead Press (Dumbbell)':['2× Dumbbells','Bench or standing space'],
+  'Face Pulls (Cable)':['Cable machine','Rope attachment','Set cable to face height'],
+  'Seated Cable Row (Wide Grip)':['Cable machine','Wide bar or two handles'],
+  'Cable Woodchop (High to Low)':['Cable machine','Single handle','Set cable high'],
+  'Dumbbell Hammer Curl':['2× Dumbbells'],
+  'Battle Rope Slams':['Battle ropes (anchored)'],
+  // Lower + Core
+  'Barbell Back Squat':['Barbell + plates','Squat rack','Collars'],
+  'Lateral Bounds':['Bodyweight — clear floor space (3m+)'],
+  'Romanian Deadlift':['Barbell + plates OR 2× dumbbells'],
+  'Hip Thrust (Barbell)':['Barbell + plates','Flat bench','Collars'],
+  'Bulgarian Split Squat':['2× Dumbbells (optional)','Bench or box'],
+  'Copenhagen Plank':['Flat bench or box','Exercise mat'],
+  'Nordic Hamstring Curl':['Partner to hold ankles OR anchored bar','Exercise mat'],
+  'Calf Raise Complex':['Bodyweight or dumbbells','Step or raised surface'],
+  // Athletic
+  'Deadlift':['Barbell + plates','Collars'],
+  'Box Jumps':['Plyometric box (45–60cm)'],
+  'Landmine Rotation':['Barbell in corner or landmine attachment'],
+  'Sprint Intervals':['Treadmill OR clear track/court'],
+  'Single-Leg RDL (Dumbbell)':['1× Dumbbell'],
+  'Lateral Shuffle + Touch':['Bodyweight — clear floor space (5m)'],
+  'Pallof Press':['Cable machine','Single handle','Cable at chest height'],
+  'Hollow Body Hold':['Mat or clear floor — bodyweight'],
+  'Burpees':['Bodyweight — clear floor space'],
+  'Mountain Climbers':['Bodyweight — clear floor space / mat'],
+  'Dead Bug':['Mat or clear floor — bodyweight'],
+  'Plyo Push-Ups':['Clear floor — bodyweight'],
+  'Broad Jumps':['Clear floor — bodyweight'],
+  'Dumbbell Row (Single-Arm)':['2× Dumbbells','Flat bench'],
+  'Kettlebell Swings':['Kettlebell'],
+  // Shared / legacy
   'Barbell Bench Press':['Barbell + plates','Flat bench','Collars'],
-  'Dumbbell Shoulder Press':['2× Dumbbells','Bench or seat with back support'],
-  'Cable Tricep Pushdown':['Cable machine','Straight bar or rope attachment'],
+  'Dumbbell Shoulder Press':['2× Dumbbells','Bench or seat'],
+  'Cable Tricep Pushdown':['Cable machine','Straight bar or rope'],
   'Incline DB Fly':['2× Dumbbells','Incline bench (30–45°)'],
   'Pull-Ups / Lat Pulldown':['Pull-up bar OR lat pulldown machine'],
   'Barbell Bent-Over Row':['Barbell + plates','Collars'],
-  'Dumbbell Hammer Curl':['2× Dumbbells'],
-  'Face Pulls (Cable)':['Cable machine','Rope attachment','Set cable to face height'],
-  'Barbell Back Squat':['Barbell + plates','Squat rack','Collars'],
-  'Romanian Deadlift':['Barbell + plates OR 2× dumbbells'],
-  'Walking Lunges (DB)':['2× Dumbbells','Clear floor space (~10m)'],
-  'Leg Press':['Leg press machine'],
-  'Deadlift':['Barbell + plates','Collars'],
-  'DB Thrusters':['2× Dumbbells'],
-  'Cable Woodchop':['Cable machine','Single handle','Set cable high'],
-  'Kettlebell Swings':['Kettlebell'],
+  'Cable Woodchop':['Cable machine','Single handle'],
   'Kettlebell Complex':['Kettlebell'],
   'Rowing Machine Intervals':['Rowing machine (erg)'],
   'Rowing Machine Sprint':['Rowing machine (erg)'],
-  'Battle Rope Slams':['Battle ropes (anchored)'],
   'Clap Push-Ups':['Clear floor space'],
-  'Box Jumps':['Sturdy plyometric box (45–60cm)'],
   'Mountain Climbers':['Clear floor space'],
-  'Jump Squats':['Bodyweight — no equipment'],
-  'Lateral Bounds':['Bodyweight — clear floor space'],
-  'Sprint Intervals':['Treadmill OR clear track'],
-  'Sprint / High Knees':['Treadmill OR clear floor'],
-  'Plyo Lunges':['Bodyweight — clear floor space'],
-  'Sled Push / Step-Ups':['Sled + plates OR sturdy box'],
-  'Assault Bike Sprint':['Assault/air bike'],
-  'Tuck Jumps':['Bodyweight — clear floor space'],
-  "Devil's Press":['2× Dumbbells (moderate weight)'],
-  'Hollow Body Hold':['Bodyweight — clear floor space'],
+  'Jump Squats':['Bodyweight'],
+  'Plyo Lunges':['Bodyweight'],
+  'Burpees':['Bodyweight'],
   'Jump Rope':['Jump rope'],
-  'Burpees':['Bodyweight — clear floor space'],
+  'Tuck Jumps':['Bodyweight'],
   'Hanging Leg Raises':['Pull-up bar'],
-  'Plank Circuit':['Bodyweight — clear floor space'],
-  'Ab Circuit':['Bodyweight — clear floor space / mat'],
-  'Plank to Push-Up':['Bodyweight — clear floor space'],
+  'Plank Circuit':['Exercise mat'],
+  'Ab Circuit':['Exercise mat'],
+  'Sprint / High Knees':['Treadmill OR clear floor'],
+  'Assault Bike Sprint':['Assault/air bike'],
 };
 
 function getEquipment(exName, lastWeight){
@@ -649,16 +654,23 @@ function getEquipment(exName, lastWeight){
 // ════════════════════════════════════════════════ WEIGHT ════
 
 const NEEDS_WEIGHT = new Set([
+  // Upper
+  'Dumbbell Bench Press','Overhead Press (Dumbbell)','Dumbbell Row (Single-Arm)','Single-Arm Cable Row','Face Pulls (Cable)',
+  'Seated Cable Row (Wide Grip)','Cable Woodchop (High to Low)','Dumbbell Hammer Curl',
+  // Lower
+  'Barbell Back Squat','Romanian Deadlift','Hip Thrust (Barbell)','Bulgarian Split Squat',
+  'Nordic Hamstring Curl','Walking Lunges (DB)',
+  // Athletic
+  'Deadlift','Landmine Rotation','Single-Leg RDL (Dumbbell)','Kettlebell Swings',
+  // Legacy / swap options
   'Barbell Bench Press','Dumbbell Shoulder Press','Cable Tricep Pushdown','Incline DB Fly',
-  'Pull-Ups / Lat Pulldown','Barbell Bent-Over Row','Dumbbell Hammer Curl','Face Pulls (Cable)',
-  'Barbell Back Squat','Romanian Deadlift','Walking Lunges (DB)','Leg Press',
-  'Deadlift','DB Thrusters','Cable Woodchop','Kettlebell Swings','Kettlebell Complex',
-  "Devil's Press",'Dumbbell Bench Press','Close-Grip Bench Press','Cable Chest Fly','Chest Dips',
+  'Pull-Ups / Lat Pulldown','Barbell Bent-Over Row','Leg Press','DB Thrusters',
+  'Cable Woodchop','Kettlebell Complex',
   'Arnold Press','Lateral Raises','Overhead Press (Barbell)','Skull Crushers (EZ Bar)',
   'Overhead Tricep Extension (DB)','Single-Arm DB Row','Seated Cable Row','T-Bar Row',
   'Barbell Curl','Incline DB Curl','Concentration Curl','Cable Curl','Hip Thrust (Barbell)',
-  'Hack Squat','Bulgarian Split Squat','Leg Extension','Front Squat','Goblet Squat',
-  'Lying Leg Curl','Good Mornings','Sumo Deadlift','Hanging Leg Raises','Russian Twist',
+  'Hack Squat','Leg Extension','Front Squat','Goblet Squat','Lying Leg Curl',
+  'Good Mornings','Sumo Deadlift','Russian Twist',
 ]);
 
 function needsWeight(n){ return NEEDS_WEIGHT.has(n); }
@@ -666,36 +678,37 @@ function weightKey(n){ return 'bbr_weight_'+n.replace(/\s+/g,'_').toLowerCase().
 function getWeight(n){ try{ return localStorage.getItem(weightKey(n)); }catch(e){ return null; } }
 function setWeightLS(n,v){ try{ localStorage.setItem(weightKey(n),v); }catch(e){} }
 
-// ════════════════════════════════════════════════ WEEK + SESSION TRACKING ════
+// ════════════════════════════════════════════════ ROLLING CYCLE TRACKING ════
 
-const WEEK_PLAN = [
-  { week:1, phase:'Foundation', focus:'Learn the movements. Form over everything.', sets:'3', reps:'12', intensity:'Light–Moderate', rest:'90s', tip:'Focus 100% on perfect technique. Don\'t chase weight.' },
-  { week:2, phase:'Establish',  focus:'Same weights. Cleaner execution every rep.', sets:'3', reps:'10–12', intensity:'Moderate', rest:'90s', tip:'If it felt easy, your form wasn\'t perfect. Clean it up.' },
-  { week:3, phase:'Build',      focus:'Add ~5% weight where form is solid.', sets:'4', reps:'8–10', intensity:'Moderate–Hard', rest:'75s', tip:'First real progression week. Push the strength lifts.' },
-  { week:4, phase:'Intensify',  focus:'Add weight again. Reduce rest 15 seconds.', sets:'4', reps:'8', intensity:'Hard', rest:'60s', tip:'Shorter rest = more metabolic stress. Embrace the burn.' },
-  { week:5, phase:'Overload',   focus:'Push near maximum. Slow tempo on all lifts.', sets:'4', reps:'6–8', intensity:'Heavy', rest:'60s', tip:'3 seconds down, explode up. Own the tempo.' },
-  { week:6, phase:'Peak',       focus:'Heaviest weights. Maximum cardio intensity.', sets:'5', reps:'6', intensity:'Max load', rest:'60s', tip:'Hardest week. Leave it all on the gym floor.' },
-  { week:7, phase:'Deload',     focus:'Drop 30% weight. Lock in gains. Recover.', sets:'3', reps:'15', intensity:'Light', rest:'90s', tip:'Deload weeks feel too easy — that\'s exactly the point.' },
+// 4-week rolling cycle, repeats indefinitely
+const CYCLE_PHASES = [
+  { phase:'Build',    focus:'Moderate load. Establish the movement patterns.', sets:'3–4', reps:'10–12', intensity:'Moderate',      rest:'75s', tip:'Consistent effort every session. Small gains compound fast.' },
+  { phase:'Overload', focus:'Add 5% weight. Increase sets. Push harder.',      sets:'4',   reps:'8–10',  intensity:'Moderate–Hard', rest:'60s', tip:'Progressive overload is the engine of growth. Chase the number.' },
+  { phase:'Peak',     focus:'Heaviest load. Low reps. Maximum intensity.',     sets:'4–5', reps:'6–8',   intensity:'Hard',          rest:'60s', tip:'This is where strength is built. Slow down, explode up.' },
+  { phase:'Deload',   focus:'Drop 30% weight. Active recovery. Lock in gains.',sets:'3',   reps:'12–15', intensity:'Light',         rest:'90s', tip:'Muscles grow during recovery. This week matters.' },
 ];
 
-function getWeek(){ try{ return parseInt(localStorage.getItem('bbr_week')||'1'); }catch(e){ return 1; } }
-function setWeekLS(w){ try{ localStorage.setItem('bbr_week',String(Math.max(1,Math.min(7,w)))); }catch(e){} }
-function currentWeekData(){ return WEEK_PLAN[Math.min(getWeek()-1,6)]; }
+function getCycleWeek(){ try{ return parseInt(localStorage.getItem('bbr_cycle_week')||'1'); }catch(e){ return 1; } }
+function setCycleWeek(w){ try{ localStorage.setItem('bbr_cycle_week',String(Math.max(1,w))); }catch(e){} }
+function getTotalSessions(){ try{ return parseInt(localStorage.getItem('bbr_total_sessions')||'0'); }catch(e){ return 0; } }
+function bumpTotalSessions(){ try{ localStorage.setItem('bbr_total_sessions',String(getTotalSessions()+1)); }catch(e){} }
+function currentCyclePhase(){ return CYCLE_PHASES[(getCycleWeek()-1)%4]; }
 
-// Session tracking: key = "bbr_sessions_w{week}" = JSON array of {dayId, date}
-function sessionsKey(w){ return `bbr_sessions_w${w}`; }
+// Shims — keeps all downstream code working unchanged
+function getWeek(){ return getCycleWeek(); }
+function setWeekLS(w){ setCycleWeek(w); }
+function currentWeekData(){ return currentCyclePhase(); }
+
+function sessionsKey(w){ return `bbr_sessions_cw${w}`; }
 function getSessionsForWeek(w){ try{ return JSON.parse(localStorage.getItem(sessionsKey(w))||'[]'); }catch(e){ return []; } }
-function saveSessionForWeek(w, dayId){ try{ const s=getSessionsForWeek(w); s.push({dayId, date:new Date().toISOString().slice(0,10)}); localStorage.setItem(sessionsKey(w),JSON.stringify(s)); }catch(e){} }
+function saveSessionForWeek(w,dayId){ try{ const s=getSessionsForWeek(w); s.push({dayId,date:new Date().toISOString().slice(0,10)}); localStorage.setItem(sessionsKey(w),JSON.stringify(s)); }catch(e){} }
 
 function recordSession(dayId){
-  const w = getWeek();
-  saveSessionForWeek(w, dayId);
-  // Check if all 4 sessions done this week → auto-advance
-  const sessions = getSessionsForWeek(w);
-  const doneIds = new Set(sessions.map(s=>s.dayId));
-  if(doneIds.size >= 4 && w < 7){
-    setWeekLS(w+1);
-  }
+  const w=getCycleWeek();
+  saveSessionForWeek(w,dayId);
+  bumpTotalSessions();
+  const doneIds=new Set(getSessionsForWeek(w).map(s=>s.dayId));
+  if(doneIds.size>=3){ setCycleWeek(w+1); }   // all 3 sessions done → advance
   renderHomeWeekBanner();
 }
 
@@ -715,115 +728,168 @@ function parseDuration(r){
 }
 
 const DAYS = [
-  { id:'push', label:'Day 1', title:'PUSH', color:'#ff6b35', focus:'Chest · Shoulders · Triceps',
-    warmup:'10 arm circles each direction · 15 shoulder rolls · 10 band pull-aparts · 5 min light cardio',
+
+  // ── DAY 1 — UPPER BODY ───────────────────────────────────────────────────────
+  // Push + pull balanced. Shoulder health, rotational stability, scapular control.
+  // Sport focus: overhead power, overhead press/overhead movement rotation, shoulder resilience.
+  { id:'upper', label:'Day 1', title:'UPPER BODY', color:'#ff6b35',
+    focus:'Chest · Back · Shoulders · Arms · Rotational Core',
+    warmup:'5 min row or bike · 10 band pull-aparts · 10 shoulder circles each way · 10 scapular push-ups · 5 thoracic rotations each side',
+    supersets:[
+      { label:'Superset A', note:'A1→A2, rest 60s ×4', sets:4, rest:60, exercises:[
+        { type:'strength', name:'Dumbbell Bench Press', muscles:['chest','triceps','shoulders'], reps:'8–10', tempo:'3-1-1',
+          tips:['Full range — feel the chest stretch at the bottom','3-second controlled descent; press explosively','Keep shoulder blades retracted and pinned throughout'] },
+        { type:'cardio', name:'Burpees', muscles:['fullBody','cardioGeneral'], reps:'10', tempo:'Max effort',
+          tips:['Done right next to the bench — no extra equipment needed','Chest to the floor each rep — no shortcuts','Explode upward with arms overhead at the top of every rep','This is your genuine heart-raiser — push the pace'] }]},
+      { label:'Superset B', note:'B1→B2, rest 60s ×3', sets:3, rest:60, exercises:[
+        { type:'strength', name:'Overhead Press (Dumbbell)', muscles:['shoulders','triceps'], reps:'10', tempo:'2-1-1',
+          tips:['Press in a slight arc to protect the shoulder joint','Brace core hard; avoid arching the lower back','Full lockout at top; slow controlled descent'] },
+        { type:'cardio', name:'Renegade Rows', muscles:['back','biceps','core','cardioGeneral'], reps:'8 each side', tempo:'Controlled',
+          tips:['Use the same dumbbells — done on the floor, no bench needed','Start in a push-up position with hands on the DBs; brace the core hard','Row one DB to the hip while the other stays on the floor — hips stay square','This is genuinely demanding — the plank hold under fatigue is where the conditioning comes from'] }]},
+      { label:'Superset C', note:'C1→C2, rest 60s ×3', sets:3, rest:60, exercises:[
+        { type:'strength', name:'Seated Cable Row (Wide Grip)', muscles:['back','rearDelts'], reps:'10–12', tempo:'2-1-2',
+          tips:['Wide grip targets upper back and rhomboids — key for posture and sport control','Pull to lower chest; squeeze shoulder blades together','Tall posture throughout; don\'t round the shoulders forward'] },
+        { type:'cardio', name:'Mountain Climbers', muscles:['core','cardioGeneral'], reps:'30 sec', tempo:'Fast',
+          tips:['Done on the floor right beside the cable station — no extra equipment','Hands directly under the shoulders; keep hips level throughout','Drive knees toward the chest alternately as fast as you can control','Genuinely raises your heart rate while working the core — a true cardio pairing'] }]},
+      { label:'Finisher D', note:'D1→D2, rest 60s ×3', sets:3, rest:60, exercises:[
+        { type:'strength', name:'Dumbbell Hammer Curl', muscles:['biceps'], reps:'12', tempo:'2-1-3',
+          tips:['Neutral grip builds brachialis — elbow stability for sport','Elbows pinned to sides; no swinging','3-second lowering phase for maximum tension'] },
+        { type:'cardio', name:'Plyo Push-Ups', muscles:['chest','core','cardioGeneral'], reps:'8–10', tempo:'Explosive',
+          tips:['Done on the floor right next to your DB rack — no extra equipment','Push explosively so both hands leave the floor','Land softly with bent elbows; immediately load for the next rep','Builds the explosive upper body power needed for overhead activities'] }]},
+    ]},
+
+  // ── DAY 2 — LOWER BODY + CORE ────────────────────────────────────────────────
+  // Hip hinge, squat, lateral movement, full posterior chain. Core in every superset.
+  // Sport focus: hip stability, glute power, hamstring resilience, change of direction.
+  { id:'lower', label:'Day 2', title:'LOWER + CORE', color:'#c084fc',
+    focus:'Glutes · Hamstrings · Quads · Calves · Full Posterior Chain + Core',
+    warmup:'5 min bike · 10 glute bridges · 10 leg swings each direction · hip flexor stretch 30s each side · 10 lateral band walks each way · 10 world\'s greatest stretch',
     supersets:[
       { label:'Superset A', note:'A1→A2, rest 75s ×4', sets:4, rest:75, exercises:[
-        { type:'strength', name:'Barbell Bench Press', muscles:['chest','triceps','shoulders'], reps:'8–10', tempo:'3-1-1', tips:['Retract shoulder blades and pin to bench','Grip slightly wider than shoulder-width; wrists over elbows','Lower bar to mid-chest with control (3 sec), press explosively'] },
-        { type:'cardio', name:'Clap Push-Ups', muscles:['chest','cardioGeneral'], reps:'8–10', tempo:'Explosive', tips:['Push explosively so hands leave the floor','Land softly with bent elbows — protect the wrists','Too hard? Do fast regular push-ups instead'] }]},
+        { type:'strength', name:'Barbell Back Squat', muscles:['quads','glutes','hamstrings'], reps:'8', tempo:'3-1-1',
+          tips:['Brace core like you\'re about to be hit — creates full spinal stability','Push knees out in line with toes; drive through the whole foot','Reach parallel depth as a minimum — go deeper if mobility allows'] },
+        { type:'cardio', name:'Lateral Bounds', muscles:['glutes','quads','calves','cardioGeneral'], reps:'10 each side', tempo:'Explosive',
+          tips:['Bound off one foot and land on the opposite — absorb fully before rebounding','Hold the landing for 1 second — this single-leg stability is critical for sport and daily movement','Drive arms for power; stay low and athletic throughout'] }]},
       { label:'Superset B', note:'B1→B2, rest 75s ×3', sets:3, rest:75, exercises:[
-        { type:'strength', name:'Dumbbell Shoulder Press', muscles:['shoulders','triceps'], reps:'10–12', tempo:'2-1-1', tips:['Start with DBs at ear height, elbows at 90°','Press directly overhead — don\'t flare elbows','Engage core; lower under full control'] },
-        { type:'cardio', name:'Battle Rope Slams', muscles:['shoulders','cardioGeneral'], reps:'20 sec', tempo:'Max effort', tips:['Drive arms up high, then slam down hard and fast','Grip ropes, soft knees, hinge slightly at hips','No rope? Do med ball slams or burpees'] }]},
+        { type:'strength', name:'Romanian Deadlift', muscles:['hamstrings','glutes','back'], reps:'10', tempo:'3-1-1',
+          tips:['Hinge at the hips — slide the bar down your legs; feel it the whole way','Strong hamstring stretch at the bottom — this is where you build resilience','Drive hips forward to stand; squeeze glutes hard at the top'] },
+        { type:'cardio',   name:'Hip Thrust (Barbell)', muscles:['glutes','hamstrings'], reps:'12', tempo:'2-2-1',
+          tips:['Shoulders on bench; drive through heels — not your lower back','Squeeze glutes maximally at the top; hold 2 seconds every rep','Glute strength is your primary protection against hamstring pulls in sport'] }]},
       { label:'Superset C', note:'C1→C2, rest 60s ×3', sets:3, rest:60, exercises:[
-        { type:'strength', name:'Cable Tricep Pushdown', muscles:['triceps'], reps:'12–15', tempo:'2-1-2', tips:['Keep elbows pinned tight to sides — no flare','Extend fully at bottom; squeeze triceps for 1 sec','Control the return — resist the weight going up'] },
-        { type:'cardio', name:'Box Jumps', muscles:['quads','glutes','cardioGeneral'], reps:'10', tempo:'High power', tips:['Swing arms back then forward as you explode up','Land softly with bent knees — absorb, don\'t crash','Step down to protect knees'] }]},
+        { type:'strength', name:'Bulgarian Split Squat', muscles:['quads','glutes','hamstrings'], reps:'10 each leg', tempo:'3-1-1',
+          tips:['Rear foot on bench; stride far enough forward so front knee stays over ankle','This is the single-leg strength foundation for explosive lateral movement','Keep torso upright; engage core to resist any sideways lean'] },
+        { type:'cardio', name:'Copenhagen Plank', muscles:['core','glutes'], reps:'25 sec each side', tempo:'Hold',
+          tips:['Side plank with top foot on a bench, bottom leg raised — brutal hip adductor and core','Hips fully elevated; body in a dead-straight line from feet to shoulders','Hip adductors are chronically weak in sport players — this protects your groin'] }]},
       { label:'Finisher D', note:'D1→D2, rest 60s ×3', sets:3, rest:60, exercises:[
-        { type:'strength', name:'Incline DB Fly', muscles:['chest','shoulders'], reps:'12', tempo:'3-1-1', tips:['Slight bend in elbows throughout','Open the chest wide; feel the stretch at the bottom','Squeeze chest as if hugging a barrel on the way up'] },
-        { type:'cardio', name:'Mountain Climbers', muscles:['core','cardioGeneral'], reps:'30 sec', tempo:'Fast', tips:['Hands directly under shoulders; hips level','Drive knees toward chest alternately as fast as possible','Breathe steadily; maintain a rigid plank'] }]},
+        { type:'strength', name:'Nordic Hamstring Curl', muscles:['hamstrings'], reps:'6–8', tempo:'4-0-1',
+          tips:['Kneel with feet anchored; lower yourself as slowly as possible — 4 seconds minimum','Catch yourself with hands; use them to push back up to the start','The single most effective exercise for preventing hamstring strains in sport'] },
+        { type:'cardio', name:'Calf Raise Complex', muscles:['calves'], reps:'15 slow + 15 fast', tempo:'Varied',
+          tips:['15 slow controlled reps (3 sec up, 3 sec down) then 15 fast explosive reps','Full range — all the way down for the stretch, full height at the top','Build both the endurance and fast-twitch power needed for lateral lateral movement'] }]},
     ]},
-  { id:'pull', label:'Day 2', title:'PULL', color:'#00d4ff', focus:'Back · Biceps · Rear Delts',
-    warmup:'10 band pull-aparts · 10 face pulls with band · 10 dead hangs (5–10 sec each) · cat-cow stretches',
+
+  // ── DAY 3 — ATHLETIC ─────────────────────────────────────────────────────────
+  // Power, rotation, single-leg stability, explosive movement. Most sport-specific.
+  // Core integrated in every exercise. Directly transfers to sport and daily movement.
+  { id:'athletic', label:'Day 3', title:'ATHLETIC', color:'#00d4ff',
+    focus:'Power · Rotation · Agility · Core · Sport Transfer',
+    warmup:'5 min light jog · 10 hip circles · world\'s greatest stretch 5 each side · 10 lateral shuffles each way · dynamic leg swings · 10 med ball or air swing rotations',
     supersets:[
-      { label:'Superset A', note:'A1→A2, rest 75s ×4', sets:4, rest:75, exercises:[
-        { type:'strength', name:'Pull-Ups / Lat Pulldown', muscles:['back','biceps'], reps:'6–8', tempo:'2-1-2', tips:['Initiate by depressing shoulder blades first','Pull elbows down and back — elbows to back pockets','Lower under full control — 2-second negative'] },
-        { type:'cardio', name:'Kettlebell Swings', muscles:['glutes','hamstrings','cardioGeneral'], reps:'15', tempo:'Explosive', tips:['Hip hinge, not a squat — push hips back','Drive hips forward explosively; bell floats from momentum','Squeeze glutes hard at the top'] }]},
-      { label:'Superset B', note:'B1→B2, rest 75s ×3', sets:3, rest:75, exercises:[
-        { type:'strength', name:'Barbell Bent-Over Row', muscles:['back','biceps','rearDelts'], reps:'8–10', tempo:'2-1-2', tips:['Hinge to ~45°, back flat and neutral','Pull bar to lower chest/upper abs; elbows back and up','Squeeze shoulder blades together at top for 1 sec'] },
-        { type:'cardio', name:'Rowing Machine Sprint', muscles:['back','cardioGeneral'], reps:'20 sec', tempo:'Max effort', tips:['Legs → body → arms on drive; reverse on recovery','60% of power comes from legs — push first','No rower? Do 20 sec jumping jacks'] }]},
-      { label:'Superset C', note:'C1→C2, rest 60s ×3', sets:3, rest:60, exercises:[
-        { type:'strength', name:'Dumbbell Hammer Curl', muscles:['biceps'], reps:'10–12', tempo:'2-1-3', tips:['Neutral grip (palms facing each other)','Keep elbows pinned to sides; don\'t swing','Slow 3-second lowering phase for max tension'] },
-        { type:'cardio', name:'Jump Rope', muscles:['calves','cardioGeneral'], reps:'30 sec', tempo:'Fast', tips:['Stay on balls of feet; keep jumps low and fast','Wrists do the turning, not the whole arm','No rope? Shadow jump or fast stepping on the spot'] }]},
-      { label:'Finisher D', note:'D1→D2, rest 60s ×3', sets:3, rest:60, exercises:[
-        { type:'strength', name:'Face Pulls (Cable)', muscles:['rearDelts','shoulders'], reps:'15', tempo:'2-2-2', tips:['Cable at face height; use rope attachment','Pull to your forehead, elbows high and flaring out','Hold peak contraction 2 sec'] },
-        { type:'cardio', name:'Burpees', muscles:['fullBody','cardioGeneral'], reps:'8', tempo:'Max effort', tips:['Chest hits the floor each rep for full range','Explode off the floor and jump with arms overhead','Move as fast as you can with control'] }]},
+      { label:'Circuit A — Power', note:'A1→A2, rest 60s ×4', sets:4, rest:60, exercises:[
+        { type:'strength', name:'Deadlift', muscles:['hamstrings','glutes','back'], reps:'5', tempo:'2-1-X',
+          tips:['Lower body drives the floor away first; bar stays vertical and close throughout','Brace the entire core before the pull — this is total-body integration','X means explosive on the way up — train fast-twitch fibres for court power'] },
+        { type:'cardio', name:'Box Jumps', muscles:['quads','glutes','calves','cardioGeneral'], reps:'8', tempo:'Explosive',
+          tips:['Full triple extension — ankles, knees, hips — at the peak of the jump','Land softly with bent knees and immediately reload for the next rep','Builds the explosive leg power needed for split-step and first-ball reach'] }]},
+      { label:'Circuit B — Rotation', note:'B1→B2, rest 60s ×3', sets:3, rest:60, exercises:[
+        { type:'strength', name:'Landmine Rotation', muscles:['core','shoulders','glutes'], reps:'10 each side', tempo:'2-1-2',
+          tips:['Hold the end of a barbell; rotate through the full range of motion','Pivot the back foot; power comes from the hips and core — not the arms','This directly replicates the rotational mechanics of a sport drive or sport rotational movement'] },
+        { type:'cardio', name:'Broad Jumps', muscles:['quads','glutes','calves','cardioGeneral'], reps:'6', tempo:'Explosive',
+          tips:['Done right next to the landmine — no extra equipment','Swing arms and explode forward as far as possible','Land softly with bent knees; absorb the impact before the next jump','Builds the explosive horizontal power and landing control needed for lateral conditioning'] }]},
+      { label:'Circuit C — Stability', note:'C1→C2, rest 60s ×3', sets:3, rest:60, exercises:[
+        { type:'strength', name:'Single-Leg RDL (Dumbbell)', muscles:['hamstrings','glutes','core'], reps:'10 each leg', tempo:'3-1-1',
+          tips:['Hold DB in the opposite hand to the standing leg','Hinge and reach toward the floor — hip sends back; maintain a flat back','Builds single-leg posterior chain strength and proprioception — prevents ankle and knee injuries'] },
+        { type:'cardio', name:'Lateral Shuffle + Touch', muscles:['quads','glutes','cardioGeneral'], reps:'10 each direction', tempo:'Fast',
+          tips:['Shuffle laterally 3–5 steps, reach down and touch the floor at each end','Stay low and athletic — don\'t stand up between shuffles','The foundational movement pattern of sport and daily movement lateral conditioning'] }]},
+      { label:'Finisher D — Core', note:'D1→D2, rest 60s ×3', sets:3, rest:60, exercises:[
+        { type:'strength', name:'Hollow Body Hold', muscles:['core'], reps:'30 sec', tempo:'Hold',
+          tips:['Done on a mat right next to where you swing the kettlebell — no extra equipment','Lie on your back; arms overhead, legs raised, lower back pressed into the floor','This is the anti-extension counterpart to the kettlebell swing — trains the core in the opposite plane','Brace everything as hard as you can; lower legs to make harder, bend knees to make easier'] },
+        { type:'cardio', name:'Kettlebell Swings', muscles:['glutes','hamstrings','core','cardioGeneral'], reps:'15', tempo:'Explosive',
+          tips:['Hip hinge pattern — drive hips forward explosively; not a squat','Bell floats to shoulder height from hip power; brace core hard at the top','Total posterior chain conditioning in one exercise — the perfect finisher'] }]},
     ]},
-  { id:'legs', label:'Day 3', title:'LEGS', color:'#c084fc', focus:'Quads · Hamstrings · Glutes · Calves',
-    warmup:'10 bodyweight squats · 10 leg swings each side · 10 hip circles · 5 min bike or brisk walk',
-    supersets:[
-      { label:'Superset A', note:'A1→A2, rest 90s ×4', sets:4, rest:90, exercises:[
-        { type:'strength', name:'Barbell Back Squat', muscles:['quads','glutes','hamstrings'], reps:'6–8', tempo:'3-1-1', tips:['Bar on upper traps; brace core hard before descent','Push knees out in line with toes; reach parallel depth','Drive through the whole foot — don\'t let heels rise'] },
-        { type:'cardio', name:'Jump Squats', muscles:['quads','glutes','cardioGeneral'], reps:'10', tempo:'Explosive', tips:['Bodyweight only — squat then explode upward','Land softly toes → midfoot → heel, immediately reload','Swing arms for momentum'] }]},
-      { label:'Superset B', note:'B1→B2, rest 75s ×3', sets:3, rest:75, exercises:[
-        { type:'strength', name:'Romanian Deadlift', muscles:['hamstrings','glutes'], reps:'10', tempo:'3-1-1', tips:['Slight knee bend; hinge at hips — slide bar down legs','Strong hamstring stretch at bottom; don\'t round the back','Drive hips forward to stand — squeeze glutes at top'] },
-        { type:'cardio', name:'Lateral Bounds', muscles:['quads','glutes','cardioGeneral'], reps:'10 each side', tempo:'Powerful', tips:['Bound laterally off one foot, landing on the opposite','Load the landing hip, hold 1 sec before bounding back','Drive arms for power; stay low'] }]},
-      { label:'Superset C', note:'C1→C2, rest 60s ×3', sets:3, rest:60, exercises:[
-        { type:'strength', name:'Walking Lunges (DB)', muscles:['quads','glutes','hamstrings'], reps:'12 each leg', tempo:'Controlled', tips:['Step forward and lower back knee toward floor','Front knee stays over ankle — don\'t cave inward','Keep torso upright; engage core'] }  ,
-        { type:'cardio', name:'Sprint / High Knees', muscles:['quads','cardioGeneral'], reps:'15 sec', tempo:'90% max', tips:['Pump arms hard; lean slightly forward','Drive knees up high on each stride','No sprint? Do 20 max-speed high knees'] }]},
-      { label:'Finisher D', note:'D1→D2, rest 60s ×3', sets:3, rest:60, exercises:[
-        { type:'strength', name:'Leg Press', muscles:['quads','glutes'], reps:'15', tempo:'3-1-1', tips:['Feet shoulder-width at mid-platform height','Lower to 90° knee bend; don\'t let hips curl off seat','Press through heels; don\'t lock knees at top'] },
-        { type:'cardio', name:'Plyo Lunges', muscles:['quads','glutes','cardioGeneral'], reps:'10 each leg', tempo:'Explosive', tips:['From lunge position, jump and switch legs in air','Land softly in lunge position — absorb with quads','Swing arms for momentum'] }]},
-    ]},
-  { id:'cardio-core', label:'Day 4', title:'CARDIO & CORE', color:'#e8ff47', focus:'Cardio · Core · Conditioning',
-    warmup:'5 min light jog or bike · 10 hip circles · 10 leg swings · 10 arm circles · dynamic stretching',
-    supersets:[
-      { label:'Circuit A', note:'A1→A2, rest 60s ×4', sets:4, rest:60, exercises:[
-        { type:'cardio', name:'Burpees', muscles:['fullBody','cardioGeneral'], reps:'12', tempo:'Max effort', tips:['Full chest to floor each rep — no shortcuts','Explode upward and clap overhead at the top','Breathe out on the way up; set the pace you can sustain'] },
-        { type:'cardio', name:'Plank Circuit', muscles:['core'], reps:'45 sec', tempo:'Controlled', tips:['Standard plank → side plank left → side plank right, flowing','Keep hips level throughout — no sagging or piking','Breathe steadily; squeeze everything tight'] }]},
-      { label:'Circuit B', note:'B1→B2, rest 60s ×4', sets:4, rest:60, exercises:[
-        { type:'cardio', name:'Rowing Machine Intervals', muscles:['back','core','cardioGeneral'], reps:'250m', tempo:'Hard effort', tips:['Drive hard for 250m — aim for a consistent pace','Legs push first, then lean back, then pull arms','Recovery walk or light row between sets'] },
-        { type:'cardio', name:'Hanging Leg Raises', muscles:['core'], reps:'12', tempo:'2-1-2', tips:['Hang from a pull-up bar; eliminate any swinging','Raise legs to 90° (or higher if possible)','Lower under complete control — don\'t drop them'] }]},
-      { label:'Circuit C', note:'C1→C2, rest 60s ×3', sets:3, rest:60, exercises:[
-        { type:'cardio', name:'Box Jumps', muscles:['quads','glutes','cardioGeneral'], reps:'10', tempo:'Explosive', tips:['Swing arms and explode up from a quarter-squat','Land softly with bent knees — absorb the impact','Step down rather than jumping down — protect your joints'] },
-        { type:'cardio', name:'Ab Circuit', muscles:['core'], reps:'30 sec each move', tempo:'Continuous', tips:['Crunches → leg raises → bicycle crunches → back to start','Keep lower back pressed into the floor throughout','No rest between moves; rest only between sets'] }]},
-      { label:'Finisher D', note:'D1→D2, rest 60s ×3', sets:3, rest:60, exercises:[
-        { type:'cardio', name:'Sprint Intervals', muscles:['quads','cardioGeneral'], reps:'20 sec', tempo:'90–100% max', tips:['Treadmill: jump on at high speed, sprint 20 sec, step off carefully','Pump arms hard; lean slightly forward into the sprint','Use the rest period to walk and bring heart rate down'] },
-        { type:'cardio', name:'Kettlebell Complex', muscles:['fullBody','core'], reps:'8 each move', tempo:'Fluid', tips:['Swing → clean → press → squat — don\'t put the bell down','Use a moderate weight you can control for all 4 movements','This is your metabolic finisher — dig deep'] }]},
-    ]},
+
 ];
+
 
 // ════════════════════════════════════════════════ SWAP LIBRARY ════
 
 const ALL_SWAP_EXERCISES = [
-  { name:'Dumbbell Bench Press', muscles:['chest','triceps'], reps:'8–10', tempo:'3-1-1', tips:['Full range of motion','3 seconds down','Feel chest stretch at bottom'] },
-  { name:'Close-Grip Bench Press', muscles:['chest','triceps'], reps:'8–10', tempo:'3-1-1', tips:['Hands shoulder-width; elbows tuck in','More tricep activation','Touch chest each rep'] },
-  { name:'Cable Chest Fly', muscles:['chest'], reps:'12–15', tempo:'2-1-2', tips:['Set cables at shoulder height','Slight bend in elbows throughout','Squeeze chest at centre — hold 1 sec'] },
-  { name:'Chest Dips', muscles:['chest','triceps'], reps:'10–12', tempo:'3-1-1', tips:['Lean forward to target chest','Lower until shoulders below elbows','Use belt for added weight if too easy'] },
-  { name:'Pec Deck Machine', muscles:['chest'], reps:'12–15', tempo:'2-2-2', tips:['Full stretch at open position','Squeeze hard at centre for 2 sec','Keep slight bend in elbows'] },
-  { name:'Arnold Press', muscles:['shoulders'], reps:'10–12', tempo:'2-1-2', tips:['Start palms facing you, rotate out as you press','Hits all three delt heads','Control the rotation'] },
-  { name:'Lateral Raises', muscles:['shoulders'], reps:'12–15', tempo:'2-1-3', tips:['Lead with elbows; don\'t shrug','Slow 3-sec lowering for max tension','Keep slight bend in elbows'] },
-  { name:'Overhead Press (Barbell)', muscles:['shoulders','triceps'], reps:'8–10', tempo:'2-1-1', tips:['Bar starts at chin; press overhead','Brace core hard','Lock out at top'] },
-  { name:'Skull Crushers (EZ Bar)', muscles:['triceps'], reps:'10–12', tempo:'3-1-1', tips:['Lower bar toward forehead with control','Elbows pointing straight up — no flare','Don\'t fully lock out at top'] },
-  { name:'Overhead Tricep Extension (DB)', muscles:['triceps'], reps:'12', tempo:'3-1-1', tips:['Elbows stay in tight overhead','Feel long head stretch at bottom','Press up without flaring elbows'] },
-  { name:'Diamond Push-Ups', muscles:['triceps','chest'], reps:'12–15', tempo:'2-1-1', tips:['Hands close together in diamond shape','Keep elbows close to torso','Lower chest toward your hands'] },
-  { name:'Single-Arm DB Row', muscles:['back','biceps'], reps:'10 each side', tempo:'2-1-2', tips:['Brace on a bench; spine neutral','Pull elbow toward hip — not straight up','Squeeze lat hard at the top'] },
-  { name:'Seated Cable Row', muscles:['back','biceps'], reps:'10–12', tempo:'2-1-2', tips:['Chest up, slight lean back on the pull','Drive elbows back and squeeze blades','Control the return'] },
-  { name:'T-Bar Row', muscles:['back','biceps'], reps:'8–10', tempo:'2-1-2', tips:['Keep chest on pad; neutral spine','Pull handles to lower chest','Hold at top for 1 sec'] },
-  { name:'Barbell Curl', muscles:['biceps'], reps:'8–10', tempo:'2-1-3', tips:['Elbows pinned to sides','Supinate wrists at top for full contraction','3-sec negative'] },
-  { name:'Incline DB Curl', muscles:['biceps'], reps:'10–12', tempo:'2-1-3', tips:['Incline stretches bicep for longer range','Let arms hang fully at bottom','No swing — pure bicep'] },
-  { name:'Cable Curl', muscles:['biceps'], reps:'12–15', tempo:'2-1-3', tips:['Constant tension unlike dumbbells','Keep elbows still — no swinging','Squeeze hard at top'] },
-  { name:'Reverse Pec Deck Fly', muscles:['rearDelts','back'], reps:'15', tempo:'2-2-2', tips:['Lead with elbows; squeeze rear delts','Don\'t use momentum','Hold at the back briefly'] },
-  { name:'Bent-Over Lateral Raise', muscles:['rearDelts'], reps:'15', tempo:'2-1-3', tips:['Hinge to 45°; lead with elbows','Arms slightly bent throughout','Slow 3-sec lowering'] },
-  { name:'Hack Squat', muscles:['quads','glutes'], reps:'10', tempo:'3-1-1', tips:['Feet shoulder-width on platform','Parallel at bottom','Press through heels'] },
-  { name:'Bulgarian Split Squat', muscles:['quads','glutes'], reps:'10 each leg', tempo:'3-1-1', tips:['Rear foot elevated; stride out wide','Front knee tracks over toes','Keep torso upright'] },
-  { name:'Leg Extension', muscles:['quads'], reps:'15', tempo:'2-2-2', tips:['Full extension at top — squeeze hard','2-sec hold at top','Slow controlled lowering'] },
-  { name:'Goblet Squat', muscles:['quads','glutes','core'], reps:'12–15', tempo:'3-1-1', tips:['Hold DB or KB at chest height','Elbows push knees out at bottom','Great for squat mechanics'] },
-  { name:'Lying Leg Curl', muscles:['hamstrings'], reps:'12', tempo:'2-2-3', tips:['Full range — extend fully at bottom','2-sec hold at top; squeeze hard','Slow 3-sec negative'] },
-  { name:'Good Mornings', muscles:['hamstrings','glutes','back'], reps:'10', tempo:'3-1-1', tips:['Light weight — hinge pattern','Push hips back; feel the stretch','Keep back straight throughout'] },
-  { name:'Hip Thrust (Barbell)', muscles:['glutes','hamstrings'], reps:'12', tempo:'2-2-1', tips:['Shoulders on bench; bar across hips','Drive through heels; squeeze at top','Hold peak contraction 2 sec each rep'] },
-  { name:'Sumo Deadlift', muscles:['glutes','hamstrings','quads'], reps:'8', tempo:'2-1-1', tips:['Wide stance; toes pointed out','Drive knees out as you push floor away','Squeeze glutes at lockout'] },
-  { name:'Hanging Leg Raises', muscles:['core'], reps:'12', tempo:'2-1-2', tips:['Hang from bar; legs straight if possible','Control the lowering — don\'t drop','Eliminate swinging'] },
-  { name:'Ab Wheel Rollout', muscles:['core'], reps:'10', tempo:'3-0-2', tips:['Roll out as far as control allows','Don\'t let hips drop','Drag back in with abs not arms'] },
-  { name:'Russian Twist', muscles:['core'], reps:'20 total', tempo:'Controlled', tips:['Feet off floor; lean back slightly','Rotate fully side to side','Hold weight plate for resistance'] },
-  { name:'Pallof Press', muscles:['core'], reps:'12 each side', tempo:'2-2-2', tips:['Cable at chest height; press straight out','Resist the rotation — anti-rotation work','Hold extended position 2 sec'] },
-  { name:'Ski Erg Sprint', muscles:['cardioGeneral','back'], reps:'20 sec', tempo:'Max effort', tips:['Pull handles down hard','Drive with hips not just arms','Great upper body cardio'] },
-  { name:'Slam Ball', muscles:['cardioGeneral','fullBody'], reps:'15', tempo:'Explosive', tips:['Raise ball overhead fully then slam hard','Bend knees as you slam','Full body effort'] },
-  { name:'High Knees', muscles:['cardioGeneral','core'], reps:'30 sec', tempo:'Fast', tips:['Drive knees to hip height','Pump arms in opposition','Stay on balls of feet'] },
-  { name:'Jump Lunges', muscles:['cardioGeneral','quads','glutes'], reps:'10 each leg', tempo:'Explosive', tips:['Lunge and explode upward, switch legs','Land softly and reload immediately','Arms pump for momentum'] },
-  { name:'Broad Jumps', muscles:['cardioGeneral','quads','glutes'], reps:'8', tempo:'Explosive', tips:['Swing arms and explode forward','Land softly with bent knees','Walk back between reps'] },
-  { name:'Step-Mill Intervals', muscles:['cardioGeneral','quads','glutes'], reps:'30 sec hard / 30 sec easy', tempo:'Intervals', tips:['High resistance for work intervals','Drive through the whole foot','Don\'t hold the rails'] },
-  { name:'Barbell Clean & Press', muscles:['fullBody'], reps:'5', tempo:'Explosive', tips:['Power clean to shoulders then press','Keep back tight throughout','Full body explosive movement'] },
-  { name:'Turkish Get-Up', muscles:['fullBody','core','shoulders'], reps:'5 each side', tempo:'Slow & controlled', tips:['KB overhead; follow the steps methodically','Eyes on the kettlebell throughout','Slow down — it\'s a skill movement'] },
+  // ── CHEST ──
+  { name:'Barbell Bench Press',         muscles:['chest','triceps','shoulders'], reps:'8–10',        tempo:'3-1-1', tips:['Full range — bar to mid-chest each rep','3-second descent','Keep shoulder blades pinned throughout'] },
+  { name:'Cable Chest Fly',             muscles:['chest'],                       reps:'12–15',       tempo:'2-1-2', tips:['Set cables at shoulder height','Slight bend in elbows throughout','Squeeze hard at centre — hold 1 sec'] },
+  { name:'Chest Dips',                  muscles:['chest','triceps'],             reps:'10–12',       tempo:'3-1-1', tips:['Lean forward to target chest','Lower until shoulders below elbows','Add belt weight if too easy'] },
+  { name:'Incline DB Press',            muscles:['chest','shoulders'],           reps:'10–12',       tempo:'3-1-1', tips:['30–45° incline; targets upper chest','Full range of motion','3-second controlled descent'] },
+  { name:'Push-Up Variations',          muscles:['chest','triceps','core'],      reps:'15–20',       tempo:'2-1-1', tips:['Wide = chest; narrow = triceps; feet elevated = upper chest','Keep body in a perfect plank throughout','Pause at the bottom for 1 sec for extra chest activation'] },
+  // ── SHOULDERS ──
+  { name:'Arnold Press',                muscles:['shoulders'],                   reps:'10–12',       tempo:'2-1-2', tips:['Start palms facing you; rotate out as you press','Hits all three deltoid heads','Control the rotation — don\'t rush it'] },
+  { name:'Lateral Raises',              muscles:['shoulders'],                   reps:'12–15',       tempo:'2-1-3', tips:['Lead with elbows; don\'t shrug','Slow 3-sec lowering for max tension','Keep slight bend in elbows throughout'] },
+  { name:'Overhead Press (Barbell)',    muscles:['shoulders','triceps'],         reps:'8–10',        tempo:'2-1-1', tips:['Bar starts at chin; press directly overhead','Brace core hard — don\'t arch back','Full lockout at top'] },
+  { name:'Cable Lateral Raise',         muscles:['shoulders'],                   reps:'12 each side',tempo:'2-1-3', tips:['Constant tension vs dumbbells','Keep body still — don\'t lean for momentum','Slow and controlled throughout'] },
+  // ── ARMS ──
+  { name:'Skull Crushers (EZ Bar)',     muscles:['triceps'],                     reps:'10–12',       tempo:'3-1-1', tips:['Lower bar toward forehead with control','Elbows pointing straight up — no flare','Don\'t fully lock out at top'] },
+  { name:'Overhead Tricep Extension',   muscles:['triceps'],                     reps:'12',          tempo:'3-1-1', tips:['Elbows stay in tight overhead','Feel long-head stretch at the bottom','Press up without flaring elbows'] },
+  { name:'Barbell Curl',                muscles:['biceps'],                      reps:'8–10',        tempo:'2-1-3', tips:['Elbows pinned to sides throughout','Supinate wrists at top for full contraction','3-sec negative'] },
+  { name:'Incline DB Curl',             muscles:['biceps'],                      reps:'10–12',       tempo:'2-1-3', tips:['Incline stretches bicep for longer range','Let arms hang fully at bottom','No swing — pure bicep contraction'] },
+  { name:'Cable Curl',                  muscles:['biceps'],                      reps:'12–15',       tempo:'2-1-3', tips:['Constant tension unlike dumbbells','Keep elbows still — no swinging','Squeeze hard at top'] },
+  // ── BACK ──
+  { name:'Pull-Ups / Lat Pulldown',     muscles:['back','biceps'],               reps:'6–10',        tempo:'2-1-2', tips:['Depress shoulder blades first before pulling','Elbows to back pockets — not straight down','2-sec controlled descent'] },
+  { name:'T-Bar Row',                   muscles:['back','biceps'],               reps:'8–10',        tempo:'2-1-2', tips:['Chest on pad; neutral spine','Pull handles to lower chest','Hold at top for 1 sec'] },
+  { name:'Chest-Supported DB Row',      muscles:['back','biceps'],               reps:'10–12',       tempo:'2-1-2', tips:['Chest on incline bench removes lower back stress','Full range of motion','Great if lower back is fatigued'] },
+  { name:'Straight-Arm Pulldown',       muscles:['back'],                        reps:'12–15',       tempo:'2-1-2', tips:['Arms straight — pure lat isolation','Hinge slightly; push bar toward thighs','Feel lats doing the work'] },
+  { name:'Reverse Pec Deck Fly',        muscles:['rearDelts','back'],            reps:'15',          tempo:'2-2-2', tips:['Lead with elbows; squeeze rear delts hard','Don\'t use momentum','Hold at the back briefly each rep'] },
+  // ── QUADS / SQUAT PATTERNS ──
+  { name:'Hack Squat',                  muscles:['quads','glutes'],              reps:'10',          tempo:'3-1-1', tips:['Feet shoulder-width on platform','Reach parallel at bottom','Press through heels'] },
+  { name:'Goblet Squat',                muscles:['quads','glutes','core'],       reps:'12–15',       tempo:'3-1-1', tips:['Hold DB or KB at chest height','Elbows push knees out at bottom','Great squat pattern for hip mobility'] },
+  { name:'Leg Press',                   muscles:['quads','glutes'],              reps:'12–15',       tempo:'3-1-1', tips:['Feet shoulder-width at mid-platform','90° at the knee at bottom','Press through heels; don\'t lock out'] },
+  { name:'Walking Lunges (DB)',         muscles:['quads','glutes','hamstrings'], reps:'12 each leg', tempo:'Controlled', tips:['Front knee over ankle','Back knee drops toward floor','Keep torso upright throughout'] },
+  { name:'Step-Up to Balance',          muscles:['quads','glutes','core'],       reps:'10 each leg', tempo:'2-1-2', tips:['Drive through the front heel on the box','Pause in single-leg balance at the top for 1 sec','All work from the front leg — no push from back foot'] },
+  // ── HAMSTRINGS / HINGE PATTERNS ──
+  { name:'Good Mornings',               muscles:['hamstrings','glutes','back'],  reps:'10',          tempo:'3-1-1', tips:['Light weight — pure hip hinge pattern','Push hips back; feel the hamstring stretch','Keep back straight; don\'t round'] },
+  { name:'Lying Leg Curl',              muscles:['hamstrings'],                  reps:'12',          tempo:'2-2-3', tips:['Full range — extend fully at bottom','2-sec hold at top; squeeze hard','Slow 3-sec negative'] },
+  { name:'Sumo Deadlift',               muscles:['glutes','hamstrings','quads'], reps:'8',           tempo:'2-1-1', tips:['Wide stance; toes pointed out','Drive knees out as you push floor away','Squeeze glutes at lockout'] },
+  // ── GLUTES ──
+  { name:'Glute Bridge (Loaded)',        muscles:['glutes','hamstrings'],         reps:'15',          tempo:'2-2-1', tips:['Barbell or plate across hips','Drive through heels; squeeze at top','Hold 2 seconds at the top each rep'] },
+  { name:'Cable Glute Kickback',         muscles:['glutes'],                      reps:'15 each leg', tempo:'2-2-2', tips:['Slight lean forward; brace core','Kick straight back — squeeze glute hard','Control the return — don\'t swing'] },
+  { name:'Sumo Squat (DB)',              muscles:['glutes','quads','hamstrings'], reps:'12',          tempo:'3-1-1', tips:['Wide stance; toes out 45°','Sit down between your heels','Drives glutes more than standard squat'] },
+  // ── CORE ──
+  { name:'Hanging Leg Raises',          muscles:['core'],                        reps:'12',          tempo:'2-1-2', tips:['Hang from bar; legs straight if possible','Control the lowering — don\'t drop','Eliminate swinging'] },
+  { name:'Ab Wheel Rollout',            muscles:['core'],                        reps:'10',          tempo:'3-0-2', tips:['Roll out as far as control allows','Don\'t let hips drop','Drag back in with abs not arms'] },
+  { name:'Russian Twist',               muscles:['core'],                        reps:'20 total',    tempo:'Controlled', tips:['Feet off floor; lean back slightly','Rotate fully side to side','Hold weight for progression'] },
+  { name:'Dead Bug',                    muscles:['core'],                        reps:'10 each side',tempo:'Slow', tips:['Lower back pressed into floor throughout','Extend opposite arm and leg simultaneously','Trains deep spinal stabilisers — protects rotation'] },
+  { name:'Plank Variations',            muscles:['core'],                        reps:'45–60 sec',   tempo:'Hold', tips:['Standard → side plank left → side plank right','Body in a dead-straight line throughout','Brace as hard as you can — don\'t just survive'] },
+  // ── SPORT-SPECIFIC / INJURY PREVENTION ──
+  { name:'Nordic Hamstring Curl',       muscles:['hamstrings'],                  reps:'6–8',         tempo:'4-0-1', tips:['Kneel with feet anchored; lower as slowly as possible','Catch yourself with hands; push back up','Most effective hamstring injury prevention exercise in sport science'] },
+  { name:'Copenhagen Plank',            muscles:['core','glutes'],               reps:'20–30 sec each side', tempo:'Hold', tips:['Top foot on bench; bottom leg raised','Hips fully elevated; body in a straight line','Targets hip adductors — critical for groin health in lateral sports'] },
+  { name:'Landmine Rotation',           muscles:['core','shoulders','glutes'],   reps:'10 each side',tempo:'2-1-2', tips:['Power from the hips; arms almost straight','Pivot the back foot on every rep','Direct gym replication of sport rotational movement / sport drive mechanics'] },
+  { name:'Lateral Shuffle + Touch',     muscles:['quads','glutes','cardioGeneral'], reps:'10 each direction', tempo:'Fast', tips:['Shuffle 3–5 steps; reach down and touch floor at each end','Stay low — don\'t stand up between shuffles','The exact lateral conditioning movement in sport and daily movement'] },
+  { name:'Single-Leg RDL (Dumbbell)',   muscles:['hamstrings','glutes','core'],  reps:'10 each leg', tempo:'3-1-1', tips:['DB in opposite hand to standing leg','Hinge and reach — hip travels back, back stays flat','Builds proprioception and balance for lateral movement'] },
+  { name:'Calf Raise Complex',          muscles:['calves'],                      reps:'15 slow + 15 fast', tempo:'Varied', tips:['Slow reps build endurance; fast reps build power','Full range throughout — all the way down','Prevents Achilles injury and builds lateral movement capacity'] },
+  { name:'Hip 90/90 Stretch',           muscles:['glutes','hamstrings'],         reps:'60 sec each side', tempo:'Hold', tips:['Sit with both legs bent at 90° front and back','Lean forward gently over front leg — feel the hip open','Outstanding for tight hips from court sports'] },
+  { name:'World\'s Greatest Stretch',  muscles:['fullBody'],                    reps:'5 each side', tempo:'Slow', tips:['Lunge forward; rotate torso and reach arm to sky','Hold 2 sec at the top; feel thoracic rotation open up','The single best warm-up stretch for sport and daily movement players'] },
+  { name:'Pallof Press',                muscles:['core'],                        reps:'12 each side',tempo:'2-2-2', tips:['Cable at chest height; press straight out and hold 2 sec','Resist the rotation — pure anti-rotation core work','Protects the spine during rotational sport movements'] },
+  { name:'Lateral Band Walk',           muscles:['glutes','core'],               reps:'15 steps each way', tempo:'Controlled', tips:['Band above knees; stay in slight squat throughout','Push knees out against band on every step','Prevents lateral knee collapse during lateral movement'] },
+  { name:'Reverse Lunge to Knee Drive', muscles:['quads','glutes','core'],       reps:'10 each leg', tempo:'Controlled', tips:['Step back into lunge; then drive front knee up to hip height','Trains hip flexor strength and single-leg stability','Mimics direction-change mechanics in sport'] },
+  { name:'Farmer\'s Carry',            muscles:['core','back','fullBody'],       reps:'30m carry',   tempo:'Steady', tips:['Heavy dumbbells at sides; tall posture throughout','Resist lateral lean — that resistance IS the core work','One of the best stability exercises for athletic longevity'] },
+  // ── CARDIO / CONDITIONING ──
+  { name:'Kettlebell Swings',           muscles:['glutes','hamstrings','cardioGeneral'], reps:'15', tempo:'Explosive', tips:['Hip hinge not squat — drive hips forward explosively','Bell floats from momentum; not arm lift','Total posterior chain conditioning in one movement'] },
+  { name:'Burpees',                     muscles:['fullBody','cardioGeneral'],    reps:'10',          tempo:'Max effort', tips:['Chest to floor each rep — no shortcuts','Explode upward with arms overhead at the top','Set a pace you can sustain for the full set'] },
+  { name:'Jump Rope',                   muscles:['calves','cardioGeneral'],      reps:'30 sec',      tempo:'Fast', tips:['Stay on balls of feet; keep jumps low','Wrists do the turning — not whole arms','No rope? Shadow jump at the same pace'] },
+  { name:'Rowing Machine Intervals',    muscles:['back','core','cardioGeneral'], reps:'250m hard',   tempo:'Hard effort', tips:['Legs first, then lean back, then pull arms','60% of power from the legs','Aim for a consistent split each rep'] },
+  { name:'Box Jumps',                   muscles:['quads','glutes','cardioGeneral'], reps:'10',       tempo:'Explosive', tips:['Full triple extension at the top','Land softly with bent knees','Step down — don\'t jump down'] },
+  { name:'Sprint Intervals',            muscles:['quads','cardioGeneral'],       reps:'15–20 sec',   tempo:'90–100%', tips:['Explosive start; drive knees high and pump arms','Full effort for the full duration','Walk recovery between sprints'] },
+  { name:'Battle Rope Waves',           muscles:['shoulders','core','cardioGeneral'], reps:'30 sec', tempo:'Fast', tips:['Alternate arms rapidly to create continuous waves','Stay low with soft knees and braced core','Relentless pace for the full duration'] },
+  { name:'Slam Ball',                   muscles:['fullBody','cardioGeneral'],    reps:'15',          tempo:'Explosive', tips:['Raise ball fully overhead then slam as hard as possible','Bend knees as you slam — full body effort','Great total-body metabolic exercise'] },
+  { name:'High Knees',                  muscles:['cardioGeneral','core'],        reps:'30 sec',      tempo:'Fast', tips:['Drive knees to hip height each rep','Pump arms in opposition','Stay on balls of feet; keep posture tall'] },
 ];
+
 
 // ════════════════════════════════════════════════ HIIT TIMER ════
 
@@ -967,9 +1033,8 @@ function buildHome(){
   DAYS.forEach((d,i)=>{
     const w=getWeek();
     const sessions=getSessionsForWeek(w);
-    const doneCount=sessions.filter(s=>s.dayId===d.id).length;
-    // Show up to 3 dots (3 occurrences per week max)
-    const dots=Array.from({length:3},(_,di)=>`<div class="session-dot${di<doneCount?' done':''}"></div>`).join('');
+    const isDoneThisWeek=sessions.some(s=>s.dayId===d.id);
+    const dots=`<div class="session-dot${isDoneThisWeek?' done':''}" title="${isDoneThisWeek?'Done this week':'Not yet'}"></div>`;
     const card=document.createElement('div'); card.className='day-card';
     card.innerHTML=`<div class="day-card-bar" style="background:${d.color}"></div><div class="day-card-inner"><div><div class="pill" style="background:${hex(d.color,0.12)};border:1px solid ${hex(d.color,0.35)};color:${d.color}">${d.label}</div><div class="day-card-title" style="color:${d.color}">${d.title}</div><div class="day-card-focus">${d.focus}</div></div><div class="day-card-actions"><span style="font-family:monospace;font-size:11px;color:#444">${d.supersets.length} rounds</span><div class="session-dots">${dots}</div><button class="btn-sm" style="color:${d.color};border-color:${hex(d.color,0.4)};background:${hex(d.color,0.08)}" onclick="event.stopPropagation();previewDay(${i})">👁 Preview</button></div></div>`;
     card.onclick=()=>selectDay(i); c.appendChild(card);
@@ -983,52 +1048,57 @@ function goHome(){ clearInterval(restInterval); clearInterval(exTimerInterval); 
 // ════════════════════════════════════════════════ WEEK TRACKER ════
 
 function renderHomeWeekBanner(){
-  const w=getWeek(), wd=currentWeekData();
-  document.getElementById('home-week-title').textContent=`WEEK ${w}`;
+  const w=getCycleWeek(), wd=currentCyclePhase();
+  const cycleNum=Math.ceil(w/4), phaseNum=((w-1)%4)+1;
+  document.getElementById('home-week-title').textContent=`CYCLE ${cycleNum} · W${phaseNum}`;
   document.getElementById('home-week-focus').textContent=wd.phase+' — '+wd.focus.split('.')[0];
-  document.getElementById('home-week-num').textContent=w;
+  document.getElementById('home-week-num').textContent=phaseNum;
   const circ=2*Math.PI*23;
-  document.getElementById('home-week-ring').style.strokeDashoffset=circ*(1-(w/7));
+  document.getElementById('home-week-ring').style.strokeDashoffset=circ*(1-(phaseNum/4));
   const dotsEl=document.getElementById('home-week-dots'); dotsEl.innerHTML='';
-  for(let i=1;i<=7;i++){ const dot=document.createElement('div'); dot.className='week-dot'+(i<w?' done':i===w?' current':''); dotsEl.appendChild(dot); }
+  for(let i=1;i<=4;i++){ const dot=document.createElement('div'); dot.className='week-dot'+(i<phaseNum?' done':i===phaseNum?' current':''); dotsEl.appendChild(dot); }
 }
 
 function openWeekModal(){
-  const w=getWeek();
-  // Week grid
+  const w=getCycleWeek(), cp=currentCyclePhase();
+  const cycleNum=Math.ceil(w/4), phaseNum=((w-1)%4)+1;
+  const totalSess=getTotalSessions();
+  // 4-phase cycle grid
   const grid=document.getElementById('week-track-grid'); grid.innerHTML='';
-  WEEK_PLAN.forEach(wd=>{
+  CYCLE_PHASES.forEach((p,i)=>{
+    const pn=i+1, isActive=pn===phaseNum, isDone=pn<phaseNum;
     const cell=document.createElement('div');
-    cell.className='week-cell'+(wd.week===w?' wk-active':wd.week<w?' wk-done':'');
-    cell.innerHTML=`${wd.week<=w?'<div class="week-cell-bar"></div>':''}<div class="week-cell-num">${wd.week}</div><div class="week-cell-label">${wd.week<w?'✓':wd.week===w?'NOW':''}</div>`;
-    cell.onclick=()=>{ /* read-only in auto-tracking mode */ }; grid.appendChild(cell);
+    cell.className='week-cell'+(isActive?' wk-active':isDone?' wk-done':'');
+    cell.innerHTML=`${pn<=phaseNum?'<div class="week-cell-bar"></div>':''}<div class="week-cell-num">W${pn}</div><div class="week-cell-label" style="font-family:monospace;font-size:7px;letter-spacing:0.06em;text-transform:uppercase;color:#555;margin-top:2px">${isDone?'✓':isActive?'NOW':p.phase.slice(0,4)}</div>`;
+    grid.appendChild(cell);
   });
-
+  // Cycle stats tile
+  const tile=document.createElement('div');
+  tile.style.cssText='background:rgba(232,255,71,0.04);border:1px solid rgba(232,255,71,0.15);border-radius:10px;padding:10px 4px;text-align:center';
+  tile.innerHTML=`<div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:#e8ff47;line-height:1">C${cycleNum}</div><div style="font-family:monospace;font-size:8px;color:#555;margin-top:3px">${totalSess} sessions</div>`;
+  grid.appendChild(tile);
   // Session tracker for current week
   const sessions=getSessionsForWeek(w);
+  const done3=new Set(sessions.map(s=>s.dayId)).size;
   const tracker=document.getElementById('week-session-tracker');
-  tracker.innerHTML=`<div class="session-tracker"><div class="session-tracker-title">This week — ${sessions.length} of 4 sessions done</div>${DAYS.map(d=>{
-    const doneSessions=sessions.filter(s=>s.dayId===d.id);
-    const isDone=doneSessions.length>0;
+  tracker.innerHTML=`<div class="session-tracker"><div class="session-tracker-title">Cycle ${cycleNum} · Week ${phaseNum} (${cp.phase}) — ${done3} of 3 sessions done</div>${DAYS.map(d=>{
+    const doneSessions=sessions.filter(s=>s.dayId===d.id); const isDone=doneSessions.length>0;
     const dateStr=isDone?doneSessions[doneSessions.length-1].date:'—';
-    return `<div class="session-row"><div style="width:10px;height:10px;border-radius:50%;background:${isDone?d.color:'#222'};border:1px solid ${isDone?d.color:'#333'};flex-shrink:0"></div><div class="session-day-name" style="color:${isDone?d.color:'#666'}">${d.title}</div><div class="session-date">${isDone?'✓ '+dateStr:'Not done'}</div></div>`;
+    return `<div class="session-row"><div style="width:10px;height:10px;border-radius:50%;background:${isDone?d.color:'#222'};border:1px solid ${isDone?d.color:'#333'};flex-shrink:0"></div><div class="session-day-name" style="color:${isDone?d.color:'#666'}">${d.title}</div><div class="session-date">${isDone?'✓ '+dateStr:'Not yet'}</div></div>`;
   }).join('')}</div>`;
-
-  // Week detail cards
+  // Phase detail cards
   const cards=document.getElementById('week-detail-cards'); cards.innerHTML='';
-  WEEK_PLAN.forEach(wd=>{
-    const isActive=wd.week===w;
-    const card=document.createElement('div'); card.className='week-detail-card'; card.id=`week-card-${wd.week}`;
-    card.style.borderLeftColor=isActive?'#e8ff47':'#2a2a2a'; card.style.opacity=wd.week<w?'0.6':'1';
-    const wSessions=getSessionsForWeek(wd.week);
-    const sessInfo=wd.week<w?`<span style="font-family:monospace;font-size:10px;color:#555">${wSessions.length}/4 sessions</span>`:wd.week===w?`<span style="font-family:monospace;font-size:10px;color:#e8ff47">${wSessions.length}/4 done</span>`:'';
-    card.innerHTML=`<div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px"><div><div class="week-detail-num">WEEK ${wd.week}</div><div class="week-detail-phase">${wd.phase}${isActive?' <span style="font-family:monospace;font-size:9px;color:#e8ff47;letter-spacing:0.1em">← YOU ARE HERE</span>':''}</div></div>${sessInfo}</div><div class="week-detail-desc">${wd.focus}</div><div class="week-detail-specs"><div class="week-detail-spec"><span class="week-detail-spec-label">Sets</span><span class="week-detail-spec-val">${wd.sets}</span></div><div class="week-detail-spec"><span class="week-detail-spec-label">Reps</span><span class="week-detail-spec-val">${wd.reps}</span></div><div class="week-detail-spec"><span class="week-detail-spec-label">Intensity</span><span class="week-detail-spec-val">${wd.intensity}</span></div><div class="week-detail-spec"><span class="week-detail-spec-label">Rest</span><span class="week-detail-spec-val">${wd.rest}</span></div></div>${isActive?`<div style="margin-top:10px;font-size:12px;color:#888;background:#0d0d0d;border-radius:8px;padding:10px 12px;border-left:2px solid #e8ff47">💡 ${wd.tip}</div>`:''}`;
+  CYCLE_PHASES.forEach((p,i)=>{
+    const pn=i+1, isActive=pn===phaseNum, isPast=pn<phaseNum;
+    const card=document.createElement('div'); card.className='week-detail-card'; card.id=`week-card-${pn}`;
+    card.style.borderLeftColor=isActive?'#e8ff47':'#2a2a2a'; card.style.opacity=isPast?'0.7':'1';
+    const sessInfo=isActive?`<span style="font-family:monospace;font-size:10px;color:#e8ff47">${done3}/3 done</span>`:'';
+    card.innerHTML=`<div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px"><div><div class="week-detail-num">WEEK ${pn}</div><div class="week-detail-phase">${p.phase}${isActive?' <span style="font-family:monospace;font-size:9px;color:#e8ff47;letter-spacing:0.1em">← YOU ARE HERE</span>':''}</div></div>${sessInfo}</div><div class="week-detail-desc">${p.focus}</div><div class="week-detail-specs"><div class="week-detail-spec"><span class="week-detail-spec-label">Sets</span><span class="week-detail-spec-val">${p.sets}</span></div><div class="week-detail-spec"><span class="week-detail-spec-label">Reps</span><span class="week-detail-spec-val">${p.reps}</span></div><div class="week-detail-spec"><span class="week-detail-spec-label">Intensity</span><span class="week-detail-spec-val">${p.intensity}</span></div><div class="week-detail-spec"><span class="week-detail-spec-label">Rest</span><span class="week-detail-spec-val">${p.rest}</span></div></div>${isActive?`<div style="margin-top:10px;font-size:12px;color:#888;background:#0d0d0d;border-radius:8px;padding:10px 12px;border-left:2px solid #e8ff47">💡 ${p.tip}</div>`:''}`;
     cards.appendChild(card);
   });
   document.getElementById('week-modal').classList.add('open');
-  setTimeout(()=>{ const ac=document.getElementById(`week-card-${w}`); if(ac) ac.scrollIntoView({behavior:'smooth',block:'nearest'}); },200);
+  setTimeout(()=>{ const ac=document.getElementById('week-card-'+phaseNum); if(ac) ac.scrollIntoView({behavior:'smooth',block:'nearest'}); },200);
 }
-
 function closeWeekModal(){ document.getElementById('week-modal').classList.remove('open'); }
 function closeWeekModalIfOutside(e){ if(e.target===document.getElementById('week-modal')) closeWeekModal(); }
 
@@ -1041,13 +1111,15 @@ function buildProgNudge(dayIdx){
   d.supersets.forEach(s=>{ s.exercises.forEach(e=>{ if(!needsWeight(e.name)) return; const lastW=getWeight(e.name); if(lastW){ const suggest=w>=3?Math.round(parseFloat(lastW)*1.05*2)/2:null; logged.push({name:e.name,last:lastW,suggest,type:e.type}); } }); });
   if(logged.length===0){ nudgeEl.innerHTML=''; return; }
   const isProgressWeek=w>=3;
-  nudgeEl.innerHTML=`<div class="prog-nudge"><div class="prog-nudge-title">${isProgressWeek?`📈 WEEK ${w} — TIME TO PUSH HARDER`:`📋 WEEK ${w} — YOUR LAST SESSION`}</div><div style="font-size:12px;color:#888;margin-bottom:12px;line-height:1.5">${isProgressWeek?`You're in the <strong>${wd.phase}</strong> phase. Aim to beat these numbers today.`:`Here's what you lifted last time. Match or beat it.`}</div>${logged.map(item=>`<div class="prog-nudge-item"><div><div class="prog-nudge-exname">${item.name}</div><div class="prog-nudge-detail">Last logged</div></div><div class="prog-nudge-weight"><div class="prog-nudge-last">${item.last}kg</div>${item.suggest?`<div style="font-size:10px;color:#e8ff47;margin-top:2px">→ try ${item.suggest}kg</div>`:''}</div></div>`).join('')}</div>`;
+  const _cn=Math.ceil(w/4),_pn=((w-1)%4)+1;
+  nudgeEl.innerHTML=`<div class="prog-nudge"><div class="prog-nudge-title">${isProgressWeek?`📈 CYCLE ${_cn} W${_pn} — PUSH HARDER`:`📋 CYCLE ${_cn} W${_pn} — YOUR LAST SESSION`}</div><div style="font-size:12px;color:#888;margin-bottom:12px;line-height:1.5">${isProgressWeek?`You\'re in the <strong>${wd.phase}</strong> phase. Aim to beat these numbers today.`:`Here's what you lifted last time. Match or beat it.`}</div>${logged.map(item=>`<div class="prog-nudge-item"><div><div class="prog-nudge-exname">${item.name}</div><div class="prog-nudge-detail">Last logged</div></div><div class="prog-nudge-weight"><div class="prog-nudge-last">${item.last}kg</div>${item.suggest?`<div style="font-size:10px;color:#e8ff47;margin-top:2px">→ try ${item.suggest}kg</div>`:''}</div></div>`).join('')}</div>`;
 }
 
 function renderWarmup(){
   const d=day(), w=getWeek(), wd=currentWeekData();
   document.getElementById('warmup-logo').style.color=d.color;
-  document.getElementById('warmup-week-chip').textContent=`Week ${w} · ${wd.phase}`;
+  const _wc=getCycleWeek(),_cp2=currentCyclePhase(),_cn2=Math.ceil(_wc/4),_pn2=((_wc-1)%4)+1;
+  document.getElementById('warmup-week-chip').textContent=`Cycle ${_cn2} · Week ${_pn2} · ${_cp2.phase}`;
   const pill=document.getElementById('warmup-pill'); pill.textContent=d.label;
   pill.style.cssText=`background:${hex(d.color,0.12)};border:1px solid ${hex(d.color,0.35)};color:${d.color}`;
   document.getElementById('warmup-day-title').textContent=d.title;
@@ -1057,7 +1129,7 @@ function renderWarmup(){
   wb.style.cssText=`background:${hex(d.color,0.07)};border:1px solid ${hex(d.color,0.2)};border-radius:14px;padding:18px;margin-bottom:18px`;
   wb.querySelector('.warmup-title').style.color=d.color;
   document.getElementById('warmup-text').textContent=d.warmup;
-  document.getElementById('warmup-desc').innerHTML=`Today you'll work through <strong style="color:#f0f0f0">${d.supersets.length} supersets</strong>. Each pairs a strength lift directly with a cardio burst.`;
+  document.getElementById('warmup-desc').innerHTML=`Today you\'ll work through <strong style="color:#f0f0f0">${d.supersets.length} supersets</strong>. Each pairs a strength lift directly with a cardio burst.`;
   document.getElementById('warmup-start-btn').style.background=d.color;
   document.getElementById('warmup-start-btn').style.borderColor=d.color;
   document.getElementById('warmup-preview-btn').style.color=d.color;
@@ -1306,7 +1378,7 @@ function renderRest(){
   // Full next exercise card
   const card=document.getElementById('rest-next-card'); card.innerHTML='';
   if(isFinished){
-    card.innerHTML=`<div style="padding:20px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:${d.color}">LAST SET!</div><div style="font-size:13px;color:#666;margin-top:6px">Finish strong — you're almost done 🔥</div></div>`;
+    card.innerHTML=`<div style="padding:20px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:${d.color}">LAST SET!</div><div style="font-size:13px;color:#666;margin-top:6px">Finish strong — you\'re almost done 🔥</div></div>`;
     return;
   }
   let nextExercises=[], nextLabel='', nextNote='';
@@ -1338,7 +1410,7 @@ function advanceAfterRest(){
 function renderComplete(){
   const d=day();
   document.getElementById('complete-title').style.color=d.color;
-  document.getElementById('complete-sub').innerHTML=`You crushed <strong style="color:#f0f0f0">${d.title}</strong>.<br>${d.supersets.length} circuits complete. Session logged.<br>That's the way it's done.`;
+  document.getElementById('complete-sub').innerHTML=`You crushed <strong style="color:#f0f0f0">${d.title}</strong>.<br>Session ${getTotalSessions()} logged ✓ · Cycle ${Math.ceil(getCycleWeek()/4)}, Week ${((getCycleWeek()-1)%4)+1}<br>Done all 3 sessions this week? Cycle advances automatically.`;
   const cb=document.getElementById('checklist-box');
   cb.style.cssText=`border-radius:14px;padding:18px;margin-bottom:24px;text-align:left;background:${hex(d.color,0.06)};border:1px solid ${hex(d.color,0.2)}`;
   cb.querySelector('.checklist-title').style.color=d.color;
@@ -1352,6 +1424,5 @@ function renderComplete(){
 buildHome();
 renderHomeWeekBanner();
 </script>
-
 </body>
 </html>
